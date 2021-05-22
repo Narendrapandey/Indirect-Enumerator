@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         
         let addition = MathematicsTrickyOperations.add(firstNumber, secondNumber)
         let multiplication = MathematicsTrickyOperations.multiply(firstNumber, secondNumber)
+        
+        print(calculateResult(addition))
+        print(calculateResult(multiplication))
     }
     
     private func calculateResult(_ input: MathematicsTrickyOperations) -> Int {
@@ -30,6 +33,10 @@ class ViewController: UIViewController {
         switch input {
         case .singleVale(let value):
             return value
+        case .add(let exp1, let exp2):
+            return calculateResult(exp1) + calculateResult(exp2)
+        case .multiply(let exp1, let exp2):
+            return calculateResult(exp1) * calculateResult(exp2)
         }
     }
 }
